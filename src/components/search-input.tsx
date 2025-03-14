@@ -29,6 +29,7 @@ export default function SearchInput({
           placeholder={errorState?.message || placeholder || "Search..."}
           type="search"
           disabled={isLoading}
+          data-testid="usersInput"
           {...inputProps}
         />
         <div className="text-muted-foreground/80 pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 peer-disabled:opacity-50">
@@ -38,10 +39,15 @@ export default function SearchInput({
           className="text-muted-foreground/80 hover:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-md transition-[color,box-shadow] outline-none focus:z-10 focus-visible:ring-[3px] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
           aria-label="Submit search"
           type="submit"
+          data-testid="submitSearch"
           disabled={isLoading}
         >
           {isLoading ? (
-            <Loader2 className="animate-spin" size={16} aria-hidden="true" />
+            <Loader2
+              className="animate-spin"
+              size={16}
+              data-testid="loadInciator"
+            />
           ) : (
             <ArrowRightIcon size={16} aria-hidden="true" />
           )}

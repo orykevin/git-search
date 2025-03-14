@@ -59,6 +59,7 @@ const HistoryComponent = ({ users, setUsers, isDrawer }: Props) => {
               size="sm"
               variant="outline"
               className={history?.length ? "" : "hidden"}
+              data-testid="clearAllHistory"
             >
               Clear All
             </Button>
@@ -80,6 +81,7 @@ const HistoryComponent = ({ users, setUsers, isDrawer }: Props) => {
                 variant="destructive"
                 className="w-full"
                 onClick={handleClearAllHistory}
+                data-testid="confirmClearAllHistory"
               >
                 Clear History
               </Button>
@@ -103,7 +105,7 @@ const HistoryComponent = ({ users, setUsers, isDrawer }: Props) => {
             <div className="flex flex-col border border-muted p-1 pt-2 rounded-md my-2">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-1 ml-3">
-                  {data.history.map((user) => (
+                  {data.history.map((user, i) => (
                     <TooltipProvider delayDuration={0} key={user.login}>
                       <Tooltip>
                         <TooltipTrigger asChild>
@@ -112,6 +114,7 @@ const HistoryComponent = ({ users, setUsers, isDrawer }: Props) => {
                             target="_blank"
                             className="flex size-10 shrink-0 items-center justify-center rounded-full border-[3px] overflow-hidden -ml-3"
                             aria-hidden="true"
+                            data-testid={`userAvatarLink-${i + 1}`}
                           >
                             <img src={user.avatar_url}></img>
                           </a>
