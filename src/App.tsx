@@ -1,7 +1,7 @@
 import "./App.css";
 import { ThemeProvider } from "./components/theme-provider";
 import { ModeToggle } from "./components/mode-toogle";
-import { Card, CardContent, CardTitle } from "./components/ui/card";
+import { Card, CardContent } from "./components/ui/card";
 import HistoryComponent from "./components/history-component";
 import SearchComponent from "./components/search-component";
 import { Button } from "./components/ui/button";
@@ -9,6 +9,7 @@ import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { GithubUserDetails } from "./lib/types";
 import { Drawer, DrawerContent, DrawerTrigger } from "./components/ui/drawer";
+import GithubSearch from "./assets/icons/github-search";
 
 function App() {
   const [users, setUsers] = useState<GithubUserDetails[] | null>(null);
@@ -27,12 +28,12 @@ function App() {
             open={openDrawer}
             onOpenChange={setOpenDrawer}
           >
-            <DrawerTrigger>
+            <DrawerTrigger data-testid="openDrawerTrigger">
               <Button size="icon" variant="outline" className="md:hidden">
                 <Menu />
               </Button>
             </DrawerTrigger>
-            <DrawerContent className="pt-6 px-3">
+            <DrawerContent className="pt-6 px-3" data-testid="openDrawer">
               <HistoryComponent
                 users={users}
                 setUsers={setUsers}
@@ -40,7 +41,10 @@ function App() {
               />
             </DrawerContent>
           </Drawer>
-          <h1 className="text-lg font-semibold md:absolute">GitSearch</h1>
+          <h1 className="flex gap-2 text-lg font-semibold md:absolute">
+            <GithubSearch className="w-6 h-6" />
+            GitSearch
+          </h1>
           <div>
             <ModeToggle />
           </div>
