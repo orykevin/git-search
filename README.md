@@ -1,54 +1,70 @@
-# React + TypeScript + Vite
+# GitHub Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+GitHub Search is a React-based web application designed to help users search for repositories and users on GitHub. Built with Vite for blazing-fast development, TailwindCSS for modern styling, and Shadcn components for accessible, customizable UI elements.
 
-Currently, two official plugins are available:
+## Features
+- 🔍 **Search repositories and users** on GitHub
+- 🎯 **Responsive and dynamic UI** with TailwindCSS
+- 🎉 **Modern components** powered by Shadcn (Accordion, Dialog, Dropdown, etc.)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **React 19**
+- **Vite** for development & build
+- **TailwindCSS** with `tailwind-merge` and `tailwindcss-animate`
+- **Shadcn** UI components
+- **React Hook Form** for form handling
+- **Zod** for schema validation
+- **Vitest** & **Testing Library** for unit tests
+- **ESLint** for code linting
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/your-repo/github-search.git
+   cd github-search
+   ```
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+5. **Preview production build:**
+   ```bash
+   npm run preview
+   ```
+
+6. **Run tests:**
+   ```bash
+   npm run test
+   ```
+
+7. **Lint code:**
+   ```bash
+   npm run lint
+   ```
+
+## Environment Variables
+Create a `.env` file in the root directory and add:
+```
+VITE_GITHUB_TOKEN=your_personal_access_token
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> **Note:** A GitHub personal access token (PAT) is required to avoid API rate limits. Get one from [GitHub Settings](https://github.com/settings/tokens).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Credits
+- UI Components: [Shadcn](https://ui.shadcn.com)
+- Icons: [Lucide React](https://lucide.dev)
+- Styling: [TailwindCSS](https://tailwindcss.com)
